@@ -11,9 +11,8 @@ m_pVBoxLayout(new QVBoxLayout)
 {
 	setWindowTitle(QApplication::translate("MainWindow", "Devices", Q_NULLPTR));
 	setAllowedAreas(Qt::LeftDockWidgetArea);
-	setMinimumSize(QSize(400, 200));
 
-
+	//setMinimumSize(400, 200);
 	m_pTreeWidget->setMaximumHeight(200);
 	m_pTreeWidget->header()->setVisible(false);
 	m_pLabel->setText(QApplication::translate("MainWindow", "<html><head/><body><p>Tip<span style=\" font-style:italic;\">:Double-click a camera to open it</span></p></body></html>", Q_NULLPTR));
@@ -31,12 +30,7 @@ m_pVBoxLayout(new QVBoxLayout)
 
 	m_pWidget->setLayout(m_pVBoxLayout);
 
-	//m_pMainVBoxLayout = new QHBoxLayout;
-	//m_pMainVBoxLayout->addWidget(m_pWidget);
-	//m_pWidget->setMinimumSize(QSize(500, 200));
-	//m_pWidget->resize(QSize(500, 200));
 	setWidget(m_pWidget);
-	//setLayout(m_pMainVBoxLayout);
 }
 
 DeviceWidget::~DeviceWidget()
@@ -60,5 +54,5 @@ DeviceWidget::~DeviceWidget()
 QSize DeviceWidget::sizeHint() const
 {
 	//Don't work
-	return QSize(0, 0);
+	return QSize(400, 200);
 }

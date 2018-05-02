@@ -8,6 +8,7 @@ public:
 	void SetView(QWidget* widget);
 	QWidget* GetComboBox();
 	FeatureWidget(QWidget* parent);
+	QSize sizeHint() const override;
 	~FeatureWidget();
 private:
 	QComboBox* m_pComboBox;

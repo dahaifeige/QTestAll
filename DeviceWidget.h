@@ -16,7 +16,7 @@ class DeviceWidget : public QDockWidget
 public:
 	DeviceWidget(QWidget *parent);
 	~DeviceWidget();
-	QSize DeviceWidget::sizeHint() const override;
+	QSize sizeHint() const override;
 	QTreeWidget* GetTreeWidget() { return m_pTreeWidget; }
 	QCheckBox* GetCheckBox() { return m_pCheckBox; }
 	QPushButton* GetPushButton() { return m_pPushButton; }

@@ -16,8 +16,7 @@ m_pTime(new QTime(0,0))
 {
 	setWindowTitle(QApplication::translate("MainWindow", "Camera Display", Q_NULLPTR));
 	setAllowedAreas(Qt::RightDockWidgetArea);
-
-	
+		
 	m_pScrollArea->setWidget(m_pCameraWidget);
 	m_pScrollArea->setHorizontalScrollBar(m_pCameraWidget->GetHScrollBar());
 	m_pScrollArea->setVerticalScrollBar(m_pCameraWidget->GetVScrollBar());
@@ -28,13 +27,11 @@ m_pTime(new QTime(0,0))
 
 	m_pWidget->setLayout(m_pVLayout);
 	setWidget(m_pWidget.get());
-	
-	setMinimumSize(1024, 768);
 
-	setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-	setFloating(true);
+//	setMaximumSize(1324, 768);
+	setMinimumSize(1324, 768);
 
-	
+		
 	connect(m_pTimer.get(), SIGNAL(timeout()), this, SLOT(FreshInfo()));//定时刷新信息
 	connect(m_pTimerPerS.get(), SIGNAL(timeout()), this, SLOT(FreshInfoPerS()));//定时刷新信息
 
@@ -66,11 +63,6 @@ void DisplayWidget::FreshInfo()
 	m_pInfoLayout->GetScaleLabel()->setText(QString("<font size='+1'>%1%</font>").arg(m_pCameraWidget->GetScale()));//<i>Hello</i><font color=red>Qt!</font></h2>
 }
 
-QSize DisplayWidget::sizeHint() const
-{
-	//Doesn't work
-	return QSize(1280, 840);
-}
 
 void DisplayWidget::FreshInfoPerS()
 {
@@ -99,3 +91,8 @@ void DisplayWidget::StopTimerPerS()
 	m_pTimerPerS->stop();
 }
 
+QSize DisplayWidget::sizeHint() const
+{
+	//Don't work
+	return QSize(1240, 768);
+}

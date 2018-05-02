@@ -6,7 +6,9 @@ m_pWidget(new QWidget)
 {
 	setWindowTitle("Feature");
 	setAllowedAreas(Qt::LeftDockWidgetArea);
-	setMinimumSize(QSize(400, 600));
+	setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+	setMinimumSize(400, 600);
+
 	m_pComboBox->addItems({ "Beginner","Expert","Guru","Invisible" });
 	m_pComboBox->setCurrentIndex(0);
 
@@ -33,4 +35,9 @@ FeatureWidget::~FeatureWidget()
 		delete m_pVBoxLayout;
 	if (m_pWidget)
 		delete m_pWidget;
+}
+QSize FeatureWidget::sizeHint() const
+{
+	//Don't work
+	return QSize(400, 600);
 }
